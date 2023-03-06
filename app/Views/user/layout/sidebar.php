@@ -26,7 +26,6 @@
         <h3>General</h3>
         <ul class="nav side-menu">
           <li><a href="<?= base_url('U'); ?>"><i class="fa fa-home"></i> Home </a></li>
-          <li><a href="<?= base_url('U/Admin'); ?>"><i class="fa fa-user"></i> Admin </a></li>
         </ul>
       </div>
 
@@ -69,7 +68,7 @@
       <a data-toggle="tooltip" data-placement="top" title="Lock">
         <!-- <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> -->
       </a>
-      <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?= base_url('Auth/Admin/Destroy'); ?>">
+      <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?= base_url('Auth/User/Destroy'); ?>">
         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
       </a>
     </div>

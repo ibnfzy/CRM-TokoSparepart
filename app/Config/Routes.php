@@ -30,6 +30,16 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->group('Auth', ['namespace' => 'App\Controllers'], static function ($routes) {
+    $routes->get('Admin', 'AdminLogin::index');
+    $routes->post('Admin', 'AdminLogin::auth');
+    $routes->get('Admin/Destroy', 'AdminLogin::logout');
+    $routes->get('User', 'UserLogin::index');
+    $routes->post('User', 'UserLogin::auth');
+    $routes->get('User/Destroy', 'UserLogin::logout');
+    $routes->get('User/Registration', 'UserLogin::registration');
+    $routes->post('User/Registration', 'UserLogin::signup');
+});
 $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes) {
     $routes->get('/', function () {
         $data = [
@@ -40,6 +50,9 @@ $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes
         return view('admin/dashboard', $data);
     });
     $routes->resource('Admin');
+});
+$routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function ($routes) {
+    $routes->get('/', 'UserController::index');
 });
 
 /*
