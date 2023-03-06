@@ -1,0 +1,7 @@
+List Fitur
+1. Kelola Produk
+2. Kelola Orderan
+3. Kelola Pelanggan
+4. Kelola Bonus
+5. Sistem Feedback/Rating
+6. Track Order
