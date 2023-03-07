@@ -12,7 +12,7 @@
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
           <div class="input-group">
-            <a href="<?= base_url('U/Admin/new'); ?>" style="float: right;" class="btn btn-info col-2"><i
+            <a href="<?= base_url('U/Kategori/new'); ?>" style="float: right;" class="btn btn-info col-2"><i
                 class="fa fa-plus-square-o"></i>Tambah Data</a>
           </div>
         </div>
@@ -26,7 +26,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>Admin</h2>
+            <h2>Kategori Barang</h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -44,25 +44,21 @@
               <thead>
                 <tr>
                   <th>~</th>
-                  <th>Fullname</th>
-                  <th>Username</th>
-                  <th>Login Terakhir</th>
+                  <th>Nama Kategori</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($admin as $item) : ?>
+                <?php foreach ($kategori as $item) : ?>
                 <tr>
-                  <td><?= $item['id_admin']; ?></td>
-                  <td><?= $item['fullname']; ?></td>
-                  <td><?= $item['username']; ?></td>
-                  <td><?= $item['last_login']; ?></td>
+                  <td><?= $item['id_kategori']; ?></td>
+                  <td><?= $item['nama_kategori']; ?></td>
                   <td>
                     <div class="btn-group btn-group-lg" role="group">
-                      <a href="<?= base_url('U/Admin/' . $item['id_admin'] . '/edit'); ?>" type="button"
+                      <a href="<?= base_url('U/Kategori/' . $item['id_kategori'] . '/edit'); ?>" type="button"
                         class="btn btn-info"><i class="ti-pencil"></i></a>
-                      <button onclick="deleteData('<?= $item['id_admin']; ?>')" type="button" class="btn btn-danger"><i
-                          class="fa fa-trash"></i>></button>
+                      <button onclick="deleteData('<?= $item['id_kategori']; ?>')" type="button"
+                        class="btn btn-danger"><i class="fa fa-trash"></i>></button>
                     </div>
                   </td>
                 </tr>
@@ -94,7 +90,7 @@ function deleteData(a) {
       if (willDelete) {
         $.ajax({
           method: "DELETE",
-          url: "Admin/" + a,
+          url: "Kategori/" + a,
           success: function(response) {
             swal("Data Telah Terhapus", {
               icon: "success",

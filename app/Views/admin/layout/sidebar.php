@@ -23,10 +23,14 @@
     <!-- sidebar menu -->
     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
       <div class="menu_section">
-        <h3>General</h3>
+        <h3>Main Menu</h3>
         <ul class="nav side-menu">
           <li><a href="<?= base_url('U'); ?>"><i class="fa fa-home"></i> Home </a></li>
           <li><a href="<?= base_url('U/Admin'); ?>"><i class="fa fa-user"></i> Admin </a></li>
+          <li><a href="<?= base_url('U/Barang'); ?>"><i class="fa fa-dropbox"></i> Barang </a></li>
+          <li><a href="<?= base_url('U/Barang'); ?>"><i class="fa fa-cart-plus"></i> Transaksi </a></li>
+          <li><a href="<?= base_url('U/KategoriBarang'); ?>"><i class="fa fa-tags"></i> Kategori Barang </a></li>
+          <li><a href="<?= base_url('U/User'); ?>"><i class="fa fa-users"></i> User </a></li>
         </ul>
       </div>
 

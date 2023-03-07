@@ -50,6 +50,11 @@ $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes
         return view('admin/dashboard', $data);
     });
     $routes->resource('Admin');
+    $routes->resource('Barang');
+    $routes->resource('KategoriBarang');
+    $routes->get('/User', 'User::index');
+    $routes->get('/Transaksi', 'Transaksi::index');
+    $routes->get('/Transaksi/(:any)', 'Transaksi::show/$1');
 });
 $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function ($routes) {
     $routes->get('/', 'UserController::index');
