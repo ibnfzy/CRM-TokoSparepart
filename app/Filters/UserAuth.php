@@ -26,7 +26,7 @@ class UserAuth implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get('logged_in_pelanggan')) {
-            return redirect()->to('Auth/User');
+            return redirect()->to(base_url('Auth/User'));
         }
     }
 
