@@ -1,3 +1,5 @@
+<?php $cart = \Config\Services::cart(); ?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white flex-column border-0  ">
   <div class="container-fluid">
     <div class="w-100">
@@ -33,7 +35,11 @@
           <!-- Navbar Login-->
           <li class="ms-1 d-none d-lg-inline-block">
             <a class="nav-link text-body" href="<?= base_url('CustPanel'); ?>">
+              <?php if (isset($_SESSION['logged_in_pelanggan'])) : ?>
+              <?= $_SESSION['fullname']; ?>
+              <?php else : ?>
               Account
+              <?php endif ?>
             </a>
           </li>
           <!-- /Navbar Login-->
@@ -42,7 +48,7 @@
           <li class="ms-1 d-inline-block position-relative dropdown-cart">
             <a href="<?= base_url('Keranjang'); ?>"
               class="nav-link me-0 disable-child-pointer border-0 p-0 bg-transparent text-body">
-              Keranjang (2)
+              Keranjang (<?= $cart->totalItems() ;?>)
             </a>
 
 
@@ -76,12 +82,15 @@
                 Kategori Barang
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="<?= base_url('Katalog'); ?>">Tops</a></li>
-                <li><a class="dropdown-item" href="http://localhost:8080//category.html">Bottoms</a></li>
-                <li><a class="dropdown-item" href="http://localhost:8080//category.html">Jeans</a></li>
-                <li><a class="dropdown-item" href="http://localhost:8080//category.html">T-Shirts</a></li>
-                <li><a class="dropdown-item" href="http://localhost:8080//category.html">Shoes</a></li>
-                <li><a class="dropdown-item" href="http://localhost:8080//category.html">Accessories</a></li>
+                <?php
+                $db = \Config\Database::connect();
+                $items = $db->table('kategori_barang')->get()->getResultArray();
+                ?>
+                <?php foreach ($items as $item) : ?>
+                <li><a class="dropdown-item"
+                    href="<?= base_url('Katalog/' . str_replace(" ", "_", $item['nama_kategori'])); ?>">
+                    <?= $item['nama_kategori'] ?> </a></li>
+                <?php endforeach ?>
               </ul>
 
             </li>
