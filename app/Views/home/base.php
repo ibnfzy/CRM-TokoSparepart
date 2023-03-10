@@ -14,7 +14,8 @@
 
   <!-- Custom Google Fonts-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@300;400;700&display=auto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@300;400;700&display=auto"
+    rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>/assets/images/favicon/apple-touch-icon.png">
@@ -37,12 +38,12 @@
   <!-- Fix for custom scrollbar if JS is disabled-->
   <noscript>
     <style>
-      /**
+    /**
           * Reinstate scrolling for non-JS clients
           */
-      .simplebar-content-wrapper {
-        overflow: auto;
-      }
+    .simplebar-content-wrapper {
+      overflow: auto;
+    }
     </style>
   </noscript>
 
@@ -70,6 +71,7 @@
 
   <!-- Theme JS -->
   <!-- Vendor JS -->
+  <script src="<?= base_url(); ?>/assets/js/jquery-1.12.0.min.js"></script>
   <script src="<?= base_url(); ?>/assets/js/vendor.bundle.js"></script>
 
   <script src="<?= base_url('/'); ?>/toastr/build/toastr.min.js"></script>
@@ -80,22 +82,22 @@
   <?= $this->renderSection('script'); ?>
 
   <script>
-    toastr.options = {
-      "closeButton": false,
-      "debug": false,
-      "newestOnTop": true,
-      "progressBar": true,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": false,
-      "showDuration": "600",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
+  toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "showDuration": "600",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
   </script>
 
   <?php ?>

@@ -77,12 +77,14 @@
 <script>
 function add_item(id, stok) {
   <?php if (!isset($_SESSION['logged_in_pelanggan']) or $_SESSION['logged_in_pelanggan'] == false) :  ?>
-  swal({
+  swal.fire({
     title: "Silahkan login dahulu untuk melakukan transaksi!",
     icon: "info",
-    buttons: true
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
   }).then((willLogin) => {
-    if (willLogin) {
+    if (willLogin.isConfirmed) {
       window.location.replace("<?= base_url('Auth/User') ?>")
     }
   });
@@ -90,20 +92,21 @@ function add_item(id, stok) {
 
   <?php if (isset($_SESSION['logged_in_pelanggan']) and $_SESSION['logged_in_pelanggan'] == true) : ?>
   if (stok === 0) {
-    return swal({
+    return swal.fire({
       title: "Stok produk kosong, tidak dapat menambahkan kekeranjang!",
       icon: "info",
     });
   }
 
-  swal({
+  swal.fire({
       title: "Masukkan Item ke keranjang?",
       icon: "info",
-      buttons: true,
-      dangerMode: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
     })
     .then((willLogin) => {
-      if (willLogin) {
+      if (willLogin.isConfirmed) {
         $.ajax({
           method: "POST",
           url: "/add_item",
@@ -111,13 +114,13 @@ function add_item(id, stok) {
             'id': parseInt(id)
           },
           success: function(response) {
-            swal({
-              title: "Item berhasil masuk ke cart, pergi ke cart page?",
+            swal.fire({
+              title: "Item berhasil masuk ke Keranjang, pergi ke halaman Keranjang?",
               icon: "info",
               buttons: true,
             }).then((isSuccess) => {
               if (isSuccess) {
-                window.location.replace("<?= base_url('cart') ?>")
+                window.location.replace("<?= base_url('Keranjang') ?>")
               }
             });
           },
@@ -126,7 +129,7 @@ function add_item(id, stok) {
           }
         });
       } else {
-        swal("Item tidak ditambahkan ke cart!");
+        swal.fire("Item tidak ditambahkan ke Keranjang!");
       }
     });
   <?php endif; ?>

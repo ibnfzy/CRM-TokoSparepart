@@ -18,7 +18,8 @@
         <div class="row g-3" data-aos="fade-right">
           <div class="col-12">
             <picture>
-              <img class="img-fluid" data-zoomable src="<?= base_url('uploads/' . $data['gambar_barang']); ?>" alt="HTML Bootstrap Template by Pixel Rocket">
+              <img class="img-fluid" data-zoomable src="<?= base_url('uploads/' . $data['gambar_barang']); ?>"
+                alt="HTML Bootstrap Template by Pixel Rocket">
             </picture>
           </div>
         </div>
@@ -32,7 +33,8 @@
             <div class="d-flex align-items-center mb-3">
               <p class="small fw-bolder text-uppercase tracking-wider text-muted m-0 me-4">
                 <?= $data['kategori_barang']; ?></p>
-              <div class="d-flex justify-content-start align-items-center disable-child-pointer cursor-pointer" data-pixr-scrollto data-target=".reviews">
+              <div class="d-flex justify-content-start align-items-center disable-child-pointer cursor-pointer"
+                data-pixr-scrollto data-target=".reviews">
                 <!-- Review Stars Small-->
                 <div class="rating position-relative d-table">
                   <div class="position-absolute stars" style="width: 30%">
@@ -57,7 +59,8 @@
             <div class="d-flex justify-content-between align-items-center">
               <p class="fs-4 m-0">Rp. <?= $data['harga_barang']; ?></p>
             </div>
-            <button onclick="add_item('<?= $data['id_barang'] ?>', <?= $data['stok_barang'] ?>)" class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow">Add To Shopping Bag</button>
+            <button onclick="add_item('<?= $data['id_barang'] ?>', <?= $data['stok_barang'] ?>)"
+              class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow">Add To Shopping Bag</button>
 
             <!-- Product Highlights-->
             <div class="my-5">
@@ -68,11 +71,13 @@
             <div class="accordion" id="accordionProduct">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
                     Deskripsi Barang
                   </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionProduct">
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionProduct">
                   <div class="accordion-body">
                     <p class="m-0">
                       <?= $data['desc_barang']; ?>
@@ -125,11 +130,14 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-1.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -149,11 +157,14 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-2.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-2.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -172,11 +183,14 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-secondary rounded-circle d-block me-1"></span> Sold Out</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-secondary rounded-circle d-block me-1"></span> Sold Out</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-3.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-3.jpg" alt="">
                   </picture>
                 </div>
                 <div class="card-body px-0">
@@ -193,9 +207,11 @@
                 <div class="card-img position-relative">
                   <div class="card-badges">
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-4.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-4.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -214,11 +230,14 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-5.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-5.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -238,12 +257,16 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-6.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-6.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -264,9 +287,11 @@
                 <div class="card-img position-relative">
                   <div class="card-badges">
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-7.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-7.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -285,11 +310,14 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-8.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-8.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -308,11 +336,14 @@
               <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
                 <div class="card-img position-relative">
                   <div class="card-badges">
-                    <span class="badge badge-card"><span class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
+                    <span class="badge badge-card"><span
+                        class="f-w-2 f-h-2 bg-success rounded-circle d-block me-1"></span> New In</span>
                   </div>
-                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i class="ri-heart-line"></i></span>
+                  <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted"><i
+                      class="ri-heart-line"></i></span>
                   <picture class="position-relative overflow-hidden d-block bg-light">
-                    <img class="w-100 img-fluid position-relative z-index-10" title="" src="./assets/images/products/product-1.jpg" alt="">
+                    <img class="w-100 img-fluid position-relative z-index-10" title=""
+                      src="./assets/images/products/product-1.jpg" alt="">
                   </picture>
                   <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
                     <button class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
@@ -329,10 +360,12 @@
           </div>
 
           <!-- Add Arrows -->
-          <div class="swiper-prev top-50  start-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 start-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover">
+          <div
+            class="swiper-prev top-50  start-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 start-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover">
             <i class="ri-arrow-left-s-line ri-lg"></i>
           </div>
-          <div class="swiper-next top-50 end-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 end-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover">
+          <div
+            class="swiper-next top-50 end-0 z-index-30 cursor-pointer transition-all bg-white px-3 py-4 position-absolute z-index-30 top-50 end-0 mt-n8 d-flex justify-content-center align-items-center opacity-50-hover">
             <i class="ri-arrow-right-s-line ri-lg"></i>
           </div>
 
@@ -349,7 +382,8 @@
         <!-- Review Summary-->
         <div class="bg-light p-5 justify-content-between d-flex flex-column flex-lg-row">
           <div class="d-flex flex-column align-items-center mb-4 mb-lg-0">
-            <div class="bg-dark text-white f-w-24 f-h-24 d-flex rounded-circle align-items-center justify-content-center fs-2 fw-bold mb-3">
+            <div
+              class="bg-dark text-white f-w-24 f-h-24 d-flex rounded-circle align-items-center justify-content-center fs-2 fw-bold mb-3">
               4.3</div>
             <!-- Review Stars Medium-->
             <div class="rating position-relative d-table">
@@ -391,7 +425,8 @@
                 </div>
               </div>
               <div class="progress d-flex flex-grow-1 mx-4 f-h-1">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 80%" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <span class="fw-bold small d-block f-w-4 text-end">55</span>
             </div>
@@ -416,7 +451,8 @@
                 </div>
               </div>
               <div class="progress d-flex flex-grow-1 mx-4 f-h-1">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 60%" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <span class="fw-bold small d-block f-w-4 text-end">32</span>
             </div>
@@ -441,7 +477,8 @@
                 </div>
               </div>
               <div class="progress d-flex flex-grow-1 mx-4 f-h-1">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 30%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 30%" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <span class="fw-bold small d-block f-w-4 text-end">15</span>
             </div>
@@ -466,7 +503,8 @@
                 </div>
               </div>
               <div class="progress d-flex flex-grow-1 mx-4 f-h-1">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 8%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 8%" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <span class="fw-bold small d-block f-w-4 text-end">5</span>
             </div>
@@ -491,7 +529,8 @@
                 </div>
               </div>
               <div class="progress d-flex flex-grow-1 mx-4 f-h-1">
-                <div class="progress-bar bg-dark" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 5%" aria-valuenow="25"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <span class="fw-bold small d-block f-w-4 text-end">1</span>
             </div>
@@ -655,7 +694,8 @@
         <div class="d-flex flex-column f-w-44 mx-auto my-5 text-center">
           <small class="text-muted">Showing 6 of 105 reviews</small>
           <div class="progress f-h-1 mt-3">
-            <div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
           <a href="#" class="btn btn-outline-dark btn-sm mt-5 align-self-center py-3 px-4 border-2">Load More</a>
         </div><!-- / Review Pagination-->
@@ -673,62 +713,65 @@
 <?= $this->section('script'); ?>
 
 <script>
-  function add_item(id, stok) {
-    <?php if (!isset($_SESSION['logged_in_pelanggan']) or $_SESSION['logged_in_pelanggan'] == false) :  ?>
-      swal({
-        title: "Silahkan login dahulu untuk melakukan transaksi!",
-        icon: "info",
-        buttons: true
-      }).then((willLogin) => {
-        if (willLogin) {
-          window.location.replace("<?= base_url('Auth/User') ?>")
-        }
-      });
-    <?php endif; ?>
+function add_item(id, stok) {
+  <?php if (!isset($_SESSION['logged_in_pelanggan']) or $_SESSION['logged_in_pelanggan'] == false) :  ?>
+  swal.fire({
+    title: "Silahkan login dahulu untuk melakukan transaksi!",
+    icon: "info",
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+  }).then((willLogin) => {
+    if (willLogin.isConfirmed) {
+      window.location.replace("<?= base_url('Auth/User') ?>")
+    }
+  });
+  <?php endif; ?>
 
-    <?php if (isset($_SESSION['logged_in_pelanggan']) and $_SESSION['logged_in_pelanggan'] == true) : ?>
-      if (stok === 0) {
-        return swal({
-          title: "Stok produk kosong, tidak dapat menambahkan kekeranjang!",
-          icon: "info",
-        });
-      }
+  <?php if (isset($_SESSION['logged_in_pelanggan']) and $_SESSION['logged_in_pelanggan'] == true) : ?>
+  if (stok === 0) {
+    return swal.fire({
+      title: "Stok produk kosong, tidak dapat menambahkan kekeranjang!",
+      icon: "info",
+    });
+  }
 
-      swal({
-          title: "Masukkan Item ke keranjang?",
-          icon: "info",
-          buttons: true,
-          dangerMode: true,
-        })
-        .then((willLogin) => {
-          if (willLogin) {
-            $.ajax({
-              method: "POST",
-              url: "/add_item",
-              data: {
-                'id': parseInt(id)
-              },
-              success: function(response) {
-                swal({
-                  title: "Item berhasil masuk ke cart, pergi ke cart page?",
-                  icon: "info",
-                  buttons: true,
-                }).then((isSuccess) => {
-                  if (isSuccess) {
-                    window.location.replace("<?= base_url('cart') ?>")
-                  }
-                });
-              },
-              error: function(response) {
-                swal(response.error);
+  swal.fire({
+      title: "Masukkan Item ke keranjang?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+    })
+    .then((willLogin) => {
+      if (willLogin.isConfirmed) {
+        $.ajax({
+          method: "POST",
+          url: "/add_item",
+          data: {
+            'id': parseInt(id)
+          },
+          success: function(response) {
+            swal.fire({
+              title: "Item berhasil masuk ke Keranjang, pergi ke halaman Keranjang?",
+              icon: "info",
+              buttons: true,
+            }).then((isSuccess) => {
+              if (isSuccess) {
+                window.location.replace("<?= base_url('Keranjang') ?>")
               }
             });
-          } else {
-            swal("Item tidak ditambahkan ke cart!");
+          },
+          error: function(response) {
+            swal(response.error);
           }
         });
-    <?php endif; ?>
-  }
+      } else {
+        swal.fire("Item tidak ditambahkan ke Keranjang!");
+      }
+    });
+  <?php endif; ?>
+}
 </script>
 
 <?= $this->endSection(); ?>

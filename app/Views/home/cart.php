@@ -67,7 +67,7 @@
                       <div class="col-9 offset-1">
                         <div>
                           <h6 class="justify-content-between d-flex align-items-start mb-2">
-                            <?= $item['nama']; ?>
+                            <?= $item['name']; ?>
                             <a title="Hapus Barang dari keranjang?"
                               href="<?= base_url('remove_item/' . $item['rowid']); ?>"><i
                                 class="ri-close-line ms-3"></i></a>
@@ -107,9 +107,11 @@
                 <p class="m-0 fs-5 fw-bold">Rp. <?= $subTotalx = array_sum($total); ?></p>
               </div>
             </div>
-            <a href="./checkout.html" class="btn btn-dark w-100 text-center" role="button">Pilih Metode Pembayaran</a>
+            <button class="btn btn-dark w-100 text-center" type="button" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop">Pilih Metode Pembayaran</button>
             <hr>
-            <a href="./checkout.html" class="btn btn-outline-danger w-100 text-center mb-3" role="button">Bersihkan
+            <a href="<?= base_url('clear_cart'); ?>" class="btn btn-outline-danger w-100 text-center mb-3"
+              role="button">Bersihkan
               Keranjang</a>
           </div>
         </div>
@@ -118,5 +120,31 @@
   </div>
   <!-- /Page Content -->
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <form action="" method="post">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Pilih Metode Pembayaran</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <select class="form-control" name="metode" id="metode">
+            <option value="1">Transfer ke Bank XYZ</option>
+            <option value="2">Cash</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Proses ke Detail Order</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
 
 <?= $this->endSection(); ?>

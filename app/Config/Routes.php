@@ -34,8 +34,10 @@ $routes->get('/Katalog', 'Home::katalog');
 $routes->get('/Katalog/(:any)', 'Home::kategori/$1');
 $routes->get('/Detail/(:any)', 'Home::detail_barang/$1');
 $routes->get('/Keranjang', 'Home::keranjang');
-$routes->post('/add', 'Home::add_barang');
-$routes->post('/update_cart', 'Home::update_keranjang');
+$routes->post('add_item', 'Home::add_item');
+$routes->get('remove_item/(:any)', 'Home::remove_item/$1');
+$routes->get('clear_cart', 'Home::clear_cart');
+$routes->post('update_cart', 'Home::update_cart');
 
 $routes->group('Auth', ['namespace' => 'App\Controllers'], static function ($routes) {
     $routes->get('Admin', 'AdminLogin::index');
