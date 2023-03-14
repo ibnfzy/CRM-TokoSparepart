@@ -63,6 +63,8 @@ class Home extends BaseController
             'stok' => $get['stok_barang']
         ]);
 
+        $_SESSION['kategori'] = $get['kategori_barang'];
+
         return $this->response->setJSON(['msg' => 'Produk berhasil masuk ke keranjang']);
     }
 

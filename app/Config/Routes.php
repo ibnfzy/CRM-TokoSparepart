@@ -68,6 +68,7 @@ $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes
 });
 
 $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function ($routes) {
+    $routes->get('checkout', 'UserController::checkout');
     $routes->get('/', 'UserController::index');
 });
 

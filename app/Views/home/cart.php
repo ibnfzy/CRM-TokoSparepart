@@ -146,5 +146,6 @@
   </form>
 </div>
 
+<?php $_SESSION['subtotal'] = $subTotalx; ?>
 
 <?= $this->endSection(); ?>
