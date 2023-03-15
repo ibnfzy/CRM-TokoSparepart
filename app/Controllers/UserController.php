@@ -4,18 +4,30 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\BarangModel;
+use App\Models\KeranjangBeliModel;
+use App\Models\TransaksiModel;
+use App\Models\UserInformasiModel;
+use App\Models\WebsiteSettingsModel;
 
 class UserController extends BaseController
 {
     protected $db;
     protected $barangModel;
     protected $cart;
+    protected $userInformasi;
+    protected $transaksi;
+    protected $keranjang;
+    protected $settingsModel;
 
     public function __construct()
     {
         $this->db = \Config\Database::connect();
         $this->barangModel = new BarangModel();
         $this->cart = \Config\Services::cart();
+        $this->userInformasi = new UserInformasiModel();
+        $this->transaksi = new TransaksiModel();
+        $this->keranjang = new KeranjangBeliModel();
+        $this->settingsModel = new WebsiteSettingsModel();
     }
 
     public function index()
@@ -32,6 +44,21 @@ class UserController extends BaseController
     {
         helper('text');
         $diskon = 0;
+        $metodePembayaran = $this->request->getPost('metode');
+
+        switch ($metodePembayaran) {
+            case '1':
+                $text = 'Transfer';
+                break;
+
+            case '2':
+                $text = 'Cash';
+                break;
+
+            default:
+                $text = 'Transfer';
+                break;
+        }
 
         $subtotal = $_SESSION['subtotal'];
         $getPelanggan = $this->db->table('keranjang_beli')->where('id_user', $_SESSION['id_user'])->get()->getResultArray();
@@ -78,19 +105,22 @@ class UserController extends BaseController
                 'potongan' => $diskon,
                 'total_bayar' => $subtotal,
                 'status_bayar' => 'Menunggu Bukti Bayar',
-                'tgl_checkout' => date('Y-m-d')
+                'tgl_checkout' => date('Y-m-d'),
+                'metode_pembayaran' => $text
             ];
 
-            $data[] = [
-                'id_barang' => $getItem['id_barang'],
-                'id_user' => $_SESSION['id_user'],
-                'rowid' => $rowid,
-                'fullname' => $_SESSION['fullname'],
-                'nama_barang' => $getItem['nama_barang'],
-                'total_harga' => $getItem['harga_barang'],
-                'transaksi_datetime' => date('D, d M Y H:i:s'),
-                'qty_transaksi' => 1,
-            ];
+            if (count($getPelanggan) == 1 or count($getPelanggan) >= 5) {
+                $data[] = [
+                    'id_barang' => $getItem['id_barang'],
+                    'id_user' => $_SESSION['id_user'],
+                    'rowid' => $rowid,
+                    'fullname' => $_SESSION['fullname'],
+                    'nama_barang' => $getItem['nama_barang'],
+                    'total_harga' => $getItem['harga_barang'],
+                    'transaksi_datetime' => date('D, d M Y H:i:s'),
+                    'qty_transaksi' => 1,
+                ];
+            }
 
             $this->db->table('transaksi')->insertBatch($data);
             $this->db->table('keranjang_beli')->insert($dataKeranjang);
@@ -98,11 +128,57 @@ class UserController extends BaseController
             $home = new Home;
             $home->clear_cart();
 
-            return redirect()->to(base_url('user-panel/invoice/' . $rowid));
+            return redirect()->to(base_url('CustPanel/invoice/' . $rowid));
         } else {
-            return $this->response->setJSON([
-                'msg' => 'Anda harus login sebelum checkout'
-            ]);
+            return redirect()->to(base_url('Keranjang'))->with('type-status', 'error')
+                ->with('message', 'Gagal melakukan checkout, sesi login tidak ditemukan');
         }
+    }
+
+    public function invoice($rowid)
+    {
+        helper('form');
+        $get = $this->userInformasi->where('id_user', $_SESSION['id_user'])->first();
+        $getTransaksi = $this->transaksi->where('rowid', $rowid)->first();
+        $getKeranjang = $this->keranjang->where('rowid', $rowid)->first();
+
+        $getTransaksiData = $this->db->table('transaksi')
+            ->where('rowid', $rowid)
+            ->get()
+            ->getResultArray();
+
+        $tgl_batas = date('Y-m-d', strtotime('+2 days', strtotime($getKeranjang['tgl_checkout'])));
+
+        return view('user/invoice', [
+            'title' => 'Invoice',
+            'parentdir' => 'transaksi',
+            'rowid' => $rowid,
+            'dataToko' => $this->settingsModel->find(01),
+            'dataUser' => $get,
+            'transaksi' => $getTransaksi,
+            'keranjang' => $getKeranjang,
+            'batas' => $tgl_batas,
+            'data' => $getTransaksiData
+        ]);
+    }
+
+    public function transaksi()
+    {
+        $getKeranjang = $this->db->table('keranjang_beli')
+            ->where('id_user', $_SESSION['id_user'])
+            ->get()
+            ->getResultArray();
+
+        $getTransaksi = $this->db->table('transaksi')
+            ->where('id_user', $_SESSION['id_user'])
+            ->get()
+            ->getResultArray();
+
+        return view('user/transaksi', [
+            'title' => 'Table Transaksi',
+            'parentdir' => 'transaksi',
+            'transaksi' => $getTransaksi,
+            'keranjang' => $getKeranjang
+        ]);
     }
 }

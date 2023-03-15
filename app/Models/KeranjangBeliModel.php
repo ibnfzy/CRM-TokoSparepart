@@ -17,5 +17,6 @@ class KeranjangBeliModel extends Model
         'bukti_bayar',
         'status_bayar',
         'tgl_checkout',
+        'metode_pembayaran',
     ];
 }

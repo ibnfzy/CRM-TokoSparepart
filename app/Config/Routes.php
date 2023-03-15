@@ -68,7 +68,9 @@ $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes
 });
 
 $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function ($routes) {
-    $routes->get('checkout', 'UserController::checkout');
+    $routes->post('checkout', 'UserController::checkout');
+    $routes->get('invoice/(:any)', 'UserController::invoice/$1');
+    $routes->get('transaksi', 'UserController::transaksi');
     $routes->get('/', 'UserController::index');
 });
 
