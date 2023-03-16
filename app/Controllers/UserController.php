@@ -101,7 +101,7 @@ class UserController extends BaseController
             $dataKeranjang = [
                 'id_user' => session()->get('id_user'),
                 'rowid' => $rowid,
-                'total_items' => $this->cart->totalItems(),
+                'total_barang' => $this->cart->totalItems(),
                 'potongan' => $diskon,
                 'total_bayar' => $subtotal,
                 'status_bayar' => 'Menunggu Bukti Bayar',
@@ -116,7 +116,7 @@ class UserController extends BaseController
                     'rowid' => $rowid,
                     'fullname' => $_SESSION['fullname'],
                     'nama_barang' => $getItem['nama_barang'],
-                    'total_harga' => $getItem['harga_barang'],
+                    'total_harga' => 0,
                     'transaksi_datetime' => date('D, d M Y H:i:s'),
                     'qty_transaksi' => 1,
                 ];
