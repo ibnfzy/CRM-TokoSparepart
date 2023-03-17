@@ -132,9 +132,13 @@
               <div class="col-12">
                 <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i
                     class="fa fa-print"></i> Print</a>
-                <button type="button" class="btn btn-success pull-right"><i class="fa fa-upload"></i> Upload Bukti
+                <?php if ($keranjang['metode_pembayaran'] == 'Transfer') : ?>
+                <button <?= $disable = ($keranjang['bukti_bayar'] == null) ? '' : 'disabled'; ?> type="button"
+                  class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal"><i
+                    class="fa fa-upload"></i> Upload Bukti
                   Pembayaran
                 </button>
+                <?php endif ?>
               </div>
             </div>
           </div>
@@ -143,5 +147,37 @@
     </div>
 
   </div>
+
+  <?php if ($keranjang['bukti_bayar'] == null) : ?>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Bayar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="<?= base_url('CustPanel/upload/' . $keranjang['id_keranjang']); ?>" method="post"
+          enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="file" class="font-weight-bold">Bukti Bayar <span class="text-danger">*Max ukuran file
+                  2mb</span></label>
+              <div class="">
+                <input type="file" class="form-control" id="file" name="gambar" accept="image/*">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <?php endif; ?>
+
 
   <?= $this->endSection(); ?>

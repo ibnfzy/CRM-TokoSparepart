@@ -71,6 +71,9 @@ $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function 
     $routes->post('checkout', 'UserController::checkout');
     $routes->get('invoice/(:any)', 'UserController::invoice/$1');
     $routes->get('transaksi', 'UserController::transaksi');
+    $routes->post('upload/(:any)', 'UserController::upload/$1');
+    $routes->get('informasi', 'UserPanelController::informasi');
+    $routes->post('informasi/(:any)', 'UserPanelController::update_informasi/$1');
     $routes->get('/', 'UserController::index');
 });
 

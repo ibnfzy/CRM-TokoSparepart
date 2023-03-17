@@ -181,4 +181,76 @@ class UserController extends BaseController
             'keranjang' => $getKeranjang
         ]);
     }
+
+    public function upload($id)
+    {
+        helper('form');
+        $rules = [
+            'gambar' => 'is_image[gambar]|max_size[gambar,2048]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to(base_url('CustPanel/transaksi'))->with('type-status', 'error')
+                ->with('dataMessage', $this->validator->getErrors());
+        }
+
+        $data = [
+            'bukti_bayar' => $this->request->getFile('gambar')->getName(),
+            'status_bayar' => 'Menunggu Validasi Bukti Bayar',
+        ];
+
+        if (!$this->request->getFile('gambar')->hasMoved()) {
+            $this->request->getFile('gambar')->move('uploads');
+        }
+
+        $this->keranjang->update($id, $data);
+
+        return redirect()->to(base_url('CustPanel/transaksi'))->with('type-status', 'info')
+            ->with('message', 'Bukti Bayar berhasil diupload');
+    }
+
+    public function informasi()
+    {
+        helper('form');
+        return view('user-panel/user_informasi', [
+            'title' => 'Informasi Pelanggan',
+            'parentdir' => 'setting',
+            'data' => $this->userInformasi->where('id_user', $_SESSION['id_user'])->first()
+        ]);
+    }
+
+    public function update_informasi($id)
+    {
+        helper('form');
+        $rules = [
+            'alamat' => 'required|min_length[5]|max_length[254]',
+            'nomor' => 'required|min_length[10]|max_length[13]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->to(base_url('user-panel/informasi'))->with('type-status', 'error')
+                ->with('dataMessage', $this->validator->getErrors());
+        }
+
+        $data = [
+            'alamat' => $this->request->getPost('alamat'),
+            'nomor_hp' => $this->request->getPost('nomor'),
+        ];
+
+        $this->userInformasi->update($id, $data);
+
+        return redirect()->to(base_url('user-panel/informasi'))->with('type-status', 'info')
+            ->with('message', 'Data berhasil diperbarui');
+    }
+
+    public function updateStatusSelesai()
+    {
+        $data = [
+            'status_bayar' => $this->request->getPost('status_bayar')
+        ];
+
+        $this->keranjang->update($this->request->getPost('id_keranjang'), $data);
+
+        return $this->response->setJSON(['msg' => 'Berhasil merubah status bayar']);
+    }
 }
