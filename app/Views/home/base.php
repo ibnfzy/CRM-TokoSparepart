@@ -14,8 +14,7 @@
 
   <!-- Custom Google Fonts-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@300;400;700&display=auto"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@300;400;700&display=auto" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>/assets/images/favicon/apple-touch-icon.png">
@@ -25,27 +24,24 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
-  <script src="<?= base_url(''); ?>/swal/dist/sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="<?= base_url(''); ?>/swal/dist/sweetalert2.min.css">
-  <link rel="stylesheet" href="<?= base_url('/'); ?>/toastr/build/toastr.min.css">
+  <link rel="stylesheet" href="<?= base_url(''); ?>/swal/dist/sweetalert2.min.css" type="text/css">
+  <link rel="stylesheet" href="<?= base_url('/'); ?>/toastr/build/toastr.min.css" type="text/css">
 
   <!-- Vendor CSS -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/libs.bundle.css" />
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/libs.bundle.css" type="text/css" />
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/theme.bundle.css" />
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/theme.bundle.css" type="text/css" />
 
   <!-- Fix for custom scrollbar if JS is disabled-->
-  <noscript>
-    <style>
+  <style>
     /**
           * Reinstate scrolling for non-JS clients
           */
     .simplebar-content-wrapper {
       overflow: auto;
     }
-    </style>
-  </noscript>
+  </style>
 
   <!-- Page Title -->
   <title>Toko Fajar 88</title>
@@ -71,33 +67,34 @@
 
   <!-- Theme JS -->
   <!-- Vendor JS -->
-  <script src="<?= base_url(); ?>/assets/js/jquery-1.12.0.min.js"></script>
-  <script src="<?= base_url(); ?>/assets/js/vendor.bundle.js"></script>
+  <script src="<?= base_url(); ?>assets/js/jquery-1.12.0.min.js"></script>
+  <script src="<?= base_url(); ?>assets/js/vendor.bundle.js"></script>
 
-  <script src="<?= base_url('/'); ?>/toastr/build/toastr.min.js"></script>
+  <script src="<?= base_url(''); ?>swal/dist/sweetalert2.min.js"></script>
+  <script src="<?= base_url('/'); ?>toastr/build/toastr.min.js"></script>
 
   <!-- Theme JS -->
-  <script src="<?= base_url(); ?>/assets/js/theme.bundle.js"></script>
+  <script src="<?= base_url(); ?>assets/js/theme.bundle.js"></script>
 
   <?= $this->renderSection('script'); ?>
 
   <script>
-  toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": true,
-    "progressBar": true,
-    "positionClass": "toast-top-right",
-    "preventDuplicates": false,
-    "showDuration": "600",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": true,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": false,
+      "showDuration": "600",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
   </script>
 
   <?php ?>

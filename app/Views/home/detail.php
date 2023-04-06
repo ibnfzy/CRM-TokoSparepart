@@ -763,7 +763,7 @@ function add_item(id, stok) {
             });
           },
           error: function(response) {
-            swal(response.error);
+            swal.fire(response.error);
           }
         });
       } else {

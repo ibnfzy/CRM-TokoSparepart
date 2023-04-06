@@ -14,7 +14,7 @@
   <link href="<?= base_url(); ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link href="<?= base_url(); ?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?= base_url('/'); ?>/toastr/build/toastr.min.css">
+  <link rel="stylesheet" href="<?= base_url('/'); ?>toastr/build/toastr.min.css">
   <!-- NProgress -->
   <link href="<?= base_url(); ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- Animate.css -->
@@ -35,10 +35,10 @@
           <form action="<?= base_url('Auth/Admin'); ?>" method="POST">
             <h1>Login Form</h1>
             <div>
-              <input type="text" class="form-control" placeholder="Username" required="" />
+              <input name="username" type="text" class="form-control" placeholder="Username" required="" />
             </div>
             <div>
-              <input type="password" class="form-control" placeholder="Password" required="" />
+              <input name="password" type="password" class="form-control" placeholder="Password" required="" />
             </div>
             <div>
               <button type="submit" class="btn btn-primary submit">Log in</button>
@@ -101,7 +101,8 @@
       </div>
     </div>
   </div>
-  <script src="<?= base_url('/'); ?>/toastr/build/toastr.min.js"></script>
+  <script src="<?= base_url(); ?>/vendors/jquery/dist/jquery.min.js"></script>
+  <script src="<?= base_url('/'); ?>toastr/build/toastr.min.js"></script>
 
   <?= $this->renderSection('script'); ?>
 

@@ -51,7 +51,7 @@ class AdminLogin extends BaseController
 
                 $this->adminModel->update($id, $data);
 
-                return redirect()->to(base_url('ADashboard'))->with('type-status', 'info')
+                return redirect()->to(base_url('U'))->with('type-status', 'info')
                     ->with('message', 'Selamat Datang Kembali ' . $sessionData['fullname']);
             } else {
                 return redirect()->to(base_url('Auth/Admin'))->with('type-status', 'error')
