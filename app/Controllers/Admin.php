@@ -61,7 +61,7 @@ class Admin extends ResourceController
 
         $this->adminModel->save($data);
 
-        return redirect()->to(base_url('U/Admin'))->with('type-status', 'error')
+        return redirect()->to(base_url('U/Admin'))->with('type-status', 'success')
             ->with('message', 'Data berhasil ditambahkan');
     }
 
@@ -112,7 +112,7 @@ class Admin extends ResourceController
 
         $this->adminModel->update($id, $data);
 
-        return redirect()->to(base_url('U/Admin'))->with('type-status', 'error')
+        return redirect()->to(base_url('U/Admin'))->with('type-status', 'success')
             ->with('message', 'Data berhasil diubah');
     }
 
@@ -120,7 +120,7 @@ class Admin extends ResourceController
     {
         $this->adminModel->delete($id);
 
-        return redirect()->to(base_url('U/Admin'))->with('type-status', 'error')
+        return redirect()->to(base_url('U/Admin'))->with('type-status', 'success')
             ->with('message', 'Data berhasil terhapus');
     }
 }

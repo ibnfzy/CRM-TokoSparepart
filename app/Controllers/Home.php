@@ -3,15 +3,19 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
+use App\Models\WebsiteSettingsModel;
+use CodeIgniter\Database\RawSql;
 
 class Home extends BaseController
 {
     protected $db;
     protected $barangModel;
     protected $cart;
+    protected $websiteSetting;
 
     public function __construct()
     {
+        $this->websiteSetting = new WebsiteSettingsModel();
         $this->db = \Config\Database::connect();
         $this->barangModel = new BarangModel();
         $this->cart = \Config\Services::cart();
@@ -19,7 +23,34 @@ class Home extends BaseController
 
     public function index()
     {
-        return view('home/index');
+        $data = [];
+        $getCorouselTopSell = $this->db->table('transaksi')->select(new RawSql('DISTINCT id_barang, COUNT(id_barang) >= 2'))->get(4)->getResultArray();
+        $getCorouselRecomendation = $this->db->table('barang')->orderBy('rand()')->limit(4)->get()->getResultArray();
+        $q = $this->websiteSetting->find('01');
+        $getRecomendation = $this->db->table('barang')->orderBy('rand()')->limit(6)->get()->getResultArray();
+
+        if ($q['corousel_type'] == 1 && $getCorouselTopSell >= 3) {
+            foreach ($getCorouselTopSell as $item) {
+                $getBarang = $this->barangModel->find($item['id_barang']);
+                $data[] = [
+                    'id_barang' => $getBarang['id_barang'],
+                    'gambar' => $getBarang['gambar_barang']
+                ];
+            }
+        } else {
+            foreach ($getCorouselRecomendation as $item) {
+                $data[] = [
+                    'id_barang' => $item['id_barang'],
+                    'gambar' => $item['gambar_barang']
+                ];
+            }
+        }
+
+        return view('home/index', [
+            'corousel' => $data,
+            'corousel_type' => ($q['corousel_type'] == 0) ? 'Rekomendasi' : 'Top Selling',
+            'rekom' => $getRecomendation
+        ]);
     }
 
     public function katalog()

@@ -7,13 +7,14 @@
     <div class="page-title">
       <div class="title_left">
         <!-- <h3>Users <small>Some examples to get you started</small></h3> -->
+        <div class="input-group">
+          <a href="<?= base_url('CustPanel/Testimoni/new'); ?>" style="float: right;" class="btn btn-info col-2"><i
+              class="fa fa-plus-square-o"></i>Beri Penilaian pada barang</a>
+        </div>
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <a href="<?= base_url('CustPanel/Testimoni/new'); ?>" style="float: right;" class="btn btn-info col-2"><i class="fa fa-plus-square-o"></i>Beri Penilaian pada barang</a>
-          </div>
         </div>
       </div>
     </div>
@@ -38,7 +39,8 @@
               different screen sizes through the dynamic insertion and removal of columns from the table.
             </p> -->
 
-            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap"
+              cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th>~</th>
@@ -50,19 +52,21 @@
               <tbody>
                 <?php $i = 0;
                 foreach ($data as $item) : ?>
-                  <?php $db = \Config\Database::connect();
+                <?php $db = \Config\Database::connect();
                   $get = $db->table('produk')->where('id_produk', $item['id_produk'])->get()->getRow(); ?>
-                  <tr>
-                    <td><?= $i += 1; ?></td>
-                    <td><?= $get->nama_produk; ?></td>
-                    <td><?= $item['bintang']; ?></td>
-                    <td>
-                      <div class="btn-group btn-group-lg" role="group">
-                        <a href="<?= base_url('user-panel/Testimoni/' . $item['id_testimoni'] . '/edit'); ?>" type="button" class="btn btn-info"><i class="align-middle me-2" data-feather="edit"></i></a>
-                        <button onclick="deleteData('<?= $item['id_testimoni']; ?>')" type="button" class="btn btn-danger"><i class="align-middle me-2" data-feather="trash-2"></i></button>
-                      </div>
-                    </td>
-                  </tr>
+                <tr>
+                  <td><?= $i += 1; ?></td>
+                  <td><?= $get->nama_produk; ?></td>
+                  <td><?= $item['bintang']; ?></td>
+                  <td>
+                    <div class="btn-group btn-group-lg" role="group">
+                      <a href="<?= base_url('user-panel/Testimoni/' . $item['id_testimoni'] . '/edit'); ?>"
+                        type="button" class="btn btn-info"><i class="align-middle me-2" data-feather="edit"></i></a>
+                      <button onclick="deleteData('<?= $item['id_testimoni']; ?>')" type="button"
+                        class="btn btn-danger"><i class="align-middle me-2" data-feather="trash-2"></i></button>
+                    </div>
+                  </td>
+                </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>

@@ -7,14 +7,14 @@
     <div class="page-title">
       <div class="title_left">
         <!-- <h3>Users <small>Some examples to get you started</small></h3> -->
+        <div class="input-group">
+          <a href="<?= base_url('U/Barang/new'); ?>" style="float: right;" class="btn btn-info col-2"><i
+              class="fa fa-plus-square-o"></i>Tambah Data</a>
+        </div>
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <a href="<?= base_url('U/Barang/new'); ?>" style="float: right;" class="btn btn-info col-2"><i
-                class="fa fa-plus-square-o"></i>Tambah Data</a>
-          </div>
         </div>
       </div>
     </div>

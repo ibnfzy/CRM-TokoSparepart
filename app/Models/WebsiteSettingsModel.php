@@ -12,5 +12,6 @@ class WebsiteSettingsModel extends Model
         'alamat_toko',
         'kontak_toko',
         'biaya_ongkir',
+        'corousel_type'
     ];
 }

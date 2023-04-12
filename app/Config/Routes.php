@@ -51,20 +51,17 @@ $routes->group('Auth', ['namespace' => 'App\Controllers'], static function ($rou
 });
 
 $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes) {
-    $routes->get('/', function () {
-        $data = [
-            'title' => 'Home',
-            'parentdir' => 'home'
-        ];
-
-        return view('admin/dashboard', $data);
-    });
+    $routes->get('/', 'AdminController::index');
     $routes->resource('Admin');
     $routes->resource('Barang');
     $routes->resource('KategoriBarang');
-    $routes->get('/User', 'User::index');
-    $routes->get('/Transaksi', 'Transaksi::index');
-    $routes->get('/Transaksi/(:any)', 'Transaksi::show/$1');
+    $routes->get('/User', 'AdminController::user');
+    $routes->get('/Transaksi', 'AdminController::transaksi');
+    $routes->get('/Piutang', 'AdminController::piutang');
+    $routes->get('/Settings', 'AdminController::settings');
+    $routes->post('/Settings', 'AdminController::save_settings');
+    $routes->get('/Transaksi/(:any)', 'AdminController::invoice/$1');
+    $routes->get('/Validasi/(:any)', 'AdminController::validasi_pembayaran/$1');
 });
 
 $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function ($routes) {

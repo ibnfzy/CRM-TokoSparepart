@@ -32,62 +32,63 @@
           </div>
           <div class="x_content">
             <br />
-            <?= form_open('U/Admin/' . $admin['id_admin'], [
+            <?= form_open('U/Settings', [
               'class' => 'form-horizontal form-label-left',
               'data-parsley-validate' => ''
-            ], [
-              '_method' => 'PUT'
             ]); ?>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fullname <span
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Alamat Toko <span
                   class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <?= form_input('fullname', $admin['fullname'], [
+                <?= form_input('alamat_toko', $data['alamat_toko'], [
                   'class' => 'form-control col-md-7 col-xs-12',
-                  'placeholder' => 'Masukkan nama lengkap',
+                  'placeholder' => '',
                   'required' => 'required'
                 ]); ?>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username <span
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kontak Toko <span
                   class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <?= form_input('username', $admin['username'], [
+                <?= form_input('kontak_toko', $data['kontak_toko'], [
                   'class' => 'form-control col-md-7 col-xs-12',
-                  'placeholder' => 'Masukkan Username',
+                  'placeholder' => '',
                   'required' => 'required'
                 ]); ?>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Password <span
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Biaya Ongkir (Rp.) <span
                   class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <?= form_input('password', '', [
+                <?= form_input('biaya_ongkir', $data['biaya_ongkir'], [
                   'class' => 'form-control col-md-7 col-xs-12',
-                  'placeholder' => 'Masukkan Password',
+                  'placeholder' => '',
                   'required' => 'required'
-                ], 'password'); ?>
+                ]); ?>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Konfirmasi Password <span
-                  class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jenis Corousel <span
+                  class="required">* Top Selling membutuhkan transaksi dari user, jika data kurang akan menampilkan
+                  Rekomendasi Barang</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <?= form_input('konfirmasiPassword', '', [
+                <?= form_dropdown('corousel_type', [
+                  '0' => 'Rekomendasi Barang',
+                  '1' => 'Top Selling'
+                ], $data['corousel_type'], [
                   'class' => 'form-control col-md-7 col-xs-12',
-                  'placeholder' => 'Konfirmasi Password',
                   'required' => 'required'
-                ], 'password'); ?>
+                ]); ?>
               </div>
             </div>
 

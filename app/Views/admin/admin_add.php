@@ -7,13 +7,14 @@
     <div class="page-title">
       <div class="title_left">
         <!-- <h3>Form Elements</h3> -->
+        <div class="input-group">
+          <button onclick="history.back()" style="float: right;" class="btn btn-info col-2"><i
+              class="fa fa-arrow-circle-o-left"></i>Kembali</button>
+        </div>
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <button onclick="history.back()" style="float: right;" class="btn btn-info col-2"><i class="fa fa-arrow-circle-o-left"></i>Kembali</button>
-          </div>
         </div>
       </div>
     </div>
@@ -37,7 +38,8 @@
             ]); ?>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fullname <span class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Fullname <span
+                  class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <?= form_input('fullname', '', [
@@ -49,7 +51,8 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username <span class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Username <span
+                  class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <?= form_input('username', '', [
@@ -61,7 +64,8 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Password <span class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Password <span
+                  class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <?= form_input('password', '', [
@@ -73,7 +77,8 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Konfirmasi Password <span class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Konfirmasi Password <span
+                  class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <?= form_input('konfirmasiPassword', '', [

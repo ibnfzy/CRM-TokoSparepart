@@ -7,14 +7,14 @@
     <div class="page-title">
       <div class="title_left">
         <!-- <h3>Form Elements</h3> -->
+        <div class="input-group">
+          <button onclick="history.back()" style="float: right;" class="btn btn-info col-2"><i
+              class="fa fa-arrow-circle-o-left"></i>Kembali</button>
+        </div>
       </div>
 
       <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-          <div class="input-group">
-            <button onclick="history.back()" style="float: right;" class="btn btn-info col-2"><i
-                class="fa fa-arrow-circle-o-left"></i>Kembali</button>
-          </div>
         </div>
       </div>
     </div>

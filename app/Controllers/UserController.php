@@ -104,7 +104,7 @@ class UserController extends BaseController
                 'total_barang' => $this->cart->totalItems(),
                 'potongan' => $diskon,
                 'total_bayar' => $subtotal,
-                'status_bayar' => 'Menunggu Bukti Bayar',
+                'status_bayar' => ($metodePembayaran == 1) ? 'Menunggu Bukti Bayar' : 'Belum Lunas',
                 'tgl_checkout' => date('Y-m-d'),
                 'metode_pembayaran' => $text
             ];
