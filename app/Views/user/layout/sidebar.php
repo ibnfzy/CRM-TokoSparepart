@@ -27,6 +27,8 @@
         <ul class="nav side-menu">
           <li><a href="<?= base_url('CustPanel'); ?>"><i class="fa fa-home"></i> Home </a></li>
           <li><a href="<?= base_url('CustPanel/transaksi'); ?>"><i class="fa fa-dollar"></i> Transaksi </a></li>
+          <li><a href="<?= base_url('CustPanel/Testimoni'); ?>"><i class="fa fa-microphone"></i> Testimoni / Feedback
+            </a></li>
         </ul>
       </div>
 
@@ -60,7 +62,7 @@
 
     <!-- /menu footer buttons -->
     <div class="sidebar-footer hidden-small">
-      <a data-toggle="tooltip" data-placement="top" title="Settings" href="#">
+      <a data-toggle="tooltip" data-placement="top" title="Settings" href="<?= base_url('CustPanel/informasi'); ?>">
         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
       </a>
       <a data-toggle="tooltip" data-placement="top" title="FullScreen">

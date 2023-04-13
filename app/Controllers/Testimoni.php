@@ -24,7 +24,7 @@ class Testimoni extends ResourceController
    */
   public function index()
   {
-    return view('CustPanel/testimoni', [
+    return view('user/testimoni', [
       'title' => 'List Testimoni',
       'parentdir' => 'testimoni',
       'data' => $this->db->table('testimoni')
@@ -43,7 +43,7 @@ class Testimoni extends ResourceController
     $get = $this->db->table('keranjang')
       ->select([
         'keranjang.rowid',
-        'transaksi.id_produk',
+        'transaksi.id_barang',
         'transaksi.nama_produk'
       ])->join('transaksi', 'keranjang.rowid = transaksi.rowid', 'inner')
       ->where('keranjang.status_bayar', 'Selesai')
@@ -52,10 +52,10 @@ class Testimoni extends ResourceController
 
     $option = [];
     foreach ($get as $data) {
-      $option[$data['id_produk']] = $data['nama_produk'];
+      $option[$data['id_barang']] = $data['nama_produk'];
     }
 
-    return view('CustPanel/testimoni_add', [
+    return view('user/testimoni_add', [
       'title' => 'Tambah Testimoni',
       'parentdir' => 'testimoni',
       'data' => $option
@@ -70,7 +70,7 @@ class Testimoni extends ResourceController
   public function create()
   {
     $rules = [
-      'id_produk' => 'required',
+      'id_barang' => 'required',
       'nilai' => 'required|less_than_equal_to[8]',
       'isi' => 'required',
     ];
@@ -81,7 +81,7 @@ class Testimoni extends ResourceController
     }
 
     $data = [
-      'id_produk' => $this->request->getPost('id_produk'),
+      'id_barang' => $this->request->getPost('id_barang'),
       'id_user' => $_SESSION['id_user'],
       'isi_testimoni' => $this->request->getPost('isi'),
       'bintang' => $this->request->getPost('nilai'),
@@ -104,7 +104,7 @@ class Testimoni extends ResourceController
     $get = $this->db->table('keranjang')
       ->select([
         'keranjang.rowid',
-        'transaksi.id_produk',
+        'transaksi.id_barang',
         'transaksi.nama_produk'
       ])->join('transaksi', 'keranjang.rowid = transaksi.rowid', 'inner')
       ->where('keranjang.status_bayar', 'Selesai')
@@ -113,10 +113,10 @@ class Testimoni extends ResourceController
 
     $option = [];
     foreach ($get as $data) {
-      $option[$data['id_produk']] = $data['nama_produk'];
+      $option[$data['id_barang']] = $data['nama_produk'];
     }
 
-    return view('CustPanel/testimoni_edit', [
+    return view('user/testimoni_edit', [
       'title' => 'Tambah Testimoni',
       'parentdir' => 'testimoni',
       'data' => $option,
@@ -163,7 +163,7 @@ class Testimoni extends ResourceController
   {
     $this->testimoniModel->delete($id);
 
-    return redirect()->to(base_url('ADashboard/Produk'))->with('type-status', 'info')
+    return redirect()->to(base_url('CustPanel/Produk'))->with('type-status', 'info')
       ->with('message', 'Data berhasil terhapus');
   }
 }

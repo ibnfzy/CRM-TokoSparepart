@@ -72,6 +72,12 @@ $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function 
     $routes->get('informasi', 'UserPanelController::informasi');
     $routes->post('informasi/(:any)', 'UserPanelController::update_informasi/$1');
     $routes->get('/', 'UserController::index');
+    $routes->resource('Testimoni');
+    // $routes->get('/TestimoniNew/(:any)', 'UserController::testimoni_add/$1');
+    // $routes->post('/TestimoniNew', 'UserController::testimoni_save');
+    // $routes->get('/Testimoni', 'UserController::testimoni');
+    // $routes->get('/Testimoni/(:any)', 'UserController::testimoni_edit/$1');
+    // $routes->post('/Testimoni/(:any)', 'UserController::testimoni_update');
 });
 
 /*

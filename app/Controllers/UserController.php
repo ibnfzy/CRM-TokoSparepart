@@ -253,4 +253,31 @@ class UserController extends BaseController
 
         return $this->response->setJSON(['msg' => 'Berhasil merubah status bayar']);
     }
+
+    public function testimoni()
+    {
+        return view('user/testimoni', [
+            'title' => 'Testimoni'
+        ]);
+    }
+
+    public function testimoni_add($id)
+    {
+        // 
+    }
+
+    public function testimoni_save()
+    {
+        # code...
+    }
+
+    public function testimoni_edit($id)
+    {
+        // 
+    }
+
+    public function testimoni_update($id)
+    {
+        # code...
+    }
 }

@@ -53,15 +53,15 @@
                 <?php $i = 0;
                 foreach ($data as $item) : ?>
                 <?php $db = \Config\Database::connect();
-                  $get = $db->table('produk')->where('id_produk', $item['id_produk'])->get()->getRow(); ?>
+                  $get = $db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRow(); ?>
                 <tr>
                   <td><?= $i += 1; ?></td>
-                  <td><?= $get->nama_produk; ?></td>
+                  <td><?= $get->nama_barang; ?></td>
                   <td><?= $item['bintang']; ?></td>
                   <td>
                     <div class="btn-group btn-group-lg" role="group">
-                      <a href="<?= base_url('user-panel/Testimoni/' . $item['id_testimoni'] . '/edit'); ?>"
-                        type="button" class="btn btn-info"><i class="align-middle me-2" data-feather="edit"></i></a>
+                      <a href="<?= base_url('CustPanel/Testimoni/' . $item['id_testimoni'] . '/edit'); ?>" type="button"
+                        class="btn btn-info"><i class="align-middle me-2" data-feather="edit"></i></a>
                       <button onclick="deleteData('<?= $item['id_testimoni']; ?>')" type="button"
                         class="btn btn-danger"><i class="align-middle me-2" data-feather="trash-2"></i></button>
                     </div>
@@ -81,4 +81,38 @@
   </div>
 </div>
 
+<?= $this->endSection(); ?>
+
+<?= $this->section('script'); ?>
+<script>
+function deleteData(a) {
+  swal({
+      title: "Apa kamu yakin?",
+      text: "Data akan terhapus",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        $.ajax({
+          method: "DELETE",
+          url: "Testimoni/" + a,
+          success: function(response) {
+            swal("Data Telah Terhapus", {
+              icon: "success",
+            }).then(() => {
+              window.location.reload()
+            })
+          },
+          error: function(response) {
+            swal("Terjadi kesalahan pada AJAX", {
+              icon: "error",
+            })
+          }
+        });
+      }
+    });
+}
+</script>
 <?= $this->endSection(); ?>
