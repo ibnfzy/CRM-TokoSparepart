@@ -50,7 +50,7 @@
               <div class="col-sm-4 invoice-col">
                 <b>Invoice #<?= $rowid; ?></b><br>
                 <br>
-                <b>ID Keranjang:</b> <?= $keranjang['id_keranjang']; ?><br>
+                <b>ID Keranjang:</b> <?= $keranjang['id_keranjang_beli']; ?><br>
               </div>
               <!-- /.col -->
             </div>
@@ -64,7 +64,8 @@
                     <tr>
                       <th>Kuantitas Barang</th>
                       <th>Nama Barang</th>
-                      <th>Total Harga/th>
+                      <th>Total Harga</th>
+                      <th>#</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -73,9 +74,8 @@
                     foreach ($data as $item) : ?>
                     <?php $total[] = $item['total_harga']; ?>
                     <tr>
-                      <td><?= $i++; ?></td>
-                      <td><?= $item['nama_produk']; ?></td>
                       <td><?= $item['qty_transaksi']; ?></td>
+                      <td><?= $item['nama_barang']; ?></td>
                       <td>Rp. <?= $item['total_harga']; ?></td>
                       <td><?= $item['transaksi_datetime']; ?></td>
                     </tr>
@@ -93,7 +93,7 @@
 
 
                 <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                  <?php if ($keranjang['metode_pembayaran'] == 'transfer') : ?>
+                  <?php if ($keranjang['metode_pembayaran'] == 'Transfer') : ?>
                   Status Bukti Pembayaran :
                   <?= $retVal = ($keranjang['bukti_bayar'] == null) ? 'Belum Upload' : 'Tersedia' ?>
                   <?php else : ?>
@@ -120,7 +120,7 @@
                       <td>Rp. <?php $bayarDiskon = ($subtotal * ($keranjang['potongan'] / 100));
                               $bayar = $subtotal;
 
-                              echo $totalBayar = (isset($keranjang['potongan']) or $keranjang['potongan'] != 0) ? $bayarDiskon : $bayar;
+                              echo $totalBayar = ($keranjang['potongan'] == null or $keranjang['potongan'] > 0) ? $bayarDiskon : $bayar;
                               ?></td>
                     </tr>
                   </table>

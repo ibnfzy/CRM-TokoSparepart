@@ -63,7 +63,7 @@
                     <td><?= $item['fullname']; ?></td>
                     <td><?= $get['jumlah_transaksi']; ?></td>
                     <td><?= $getk['jumlah_transaksi']; ?></td>
-                    <td><?= $getk['jumlah_bayar']; ?></td>
+                    <td>Rp. <?= ($getk['jumlah_bayar'] == 0) ? '0' : $getk['jumlah_bayar']; ?></td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>

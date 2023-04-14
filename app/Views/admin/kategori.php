@@ -8,8 +8,7 @@
       <div class="title_left">
         <!-- <h3>Users <small>Some examples to get you started</small></h3> -->
         <div class="input-group">
-          <a href="<?= base_url('U/Kategori/new'); ?>" style="float: right;" class="btn btn-info col-2"><i
-              class="fa fa-plus-square-o"></i>Tambah Data</a>
+          <a href="<?= base_url('U/KategoriBarang/new'); ?>" style="float: right;" class="btn btn-info col-2"><i class="fa fa-plus-square-o"></i>Tambah Data</a>
         </div>
       </div>
 
@@ -39,8 +38,7 @@
               different screen sizes through the dynamic insertion and removal of columns from the table.
             </p> -->
 
-            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap"
-              cellspacing="0" width="100%">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th>~</th>
@@ -50,18 +48,16 @@
               </thead>
               <tbody>
                 <?php foreach ($kategori as $item) : ?>
-                <tr>
-                  <td><?= $item['id_kategori']; ?></td>
-                  <td><?= $item['nama_kategori']; ?></td>
-                  <td>
-                    <div class="btn-group btn-group-lg" role="group">
-                      <a href="<?= base_url('U/Kategori/' . $item['id_kategori'] . '/edit'); ?>" type="button"
-                        class="btn btn-info"><i class="ti-pencil"></i></a>
-                      <button onclick="deleteData('<?= $item['id_kategori']; ?>')" type="button"
-                        class="btn btn-danger"><i class="fa fa-trash"></i>></button>
-                    </div>
-                  </td>
-                </tr>
+                  <tr>
+                    <td><?= $item['id_kategori']; ?></td>
+                    <td><?= $item['nama_kategori']; ?></td>
+                    <td>
+                      <div class="btn-group btn-group-lg" role="group">
+                        <a href="<?= base_url('U/Kategori/' . $item['id_kategori'] . '/edit'); ?>" type="button" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                        <button onclick="deleteData('<?= $item['id_kategori']; ?>')" type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>
@@ -78,34 +74,34 @@
 
 <?= $this->section('script'); ?>
 <script>
-function deleteData(a) {
-  swal({
-      title: "Apa kamu yakin?",
-      text: "Data akan terhapus",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        $.ajax({
-          method: "DELETE",
-          url: "Kategori/" + a,
-          success: function(response) {
-            swal("Data Telah Terhapus", {
-              icon: "success",
-            }).then(() => {
-              window.location.reload()
-            })
-          },
-          error: function(response) {
-            swal("Terjadi kesalahan pada AJAX", {
-              icon: "error",
-            })
-          }
-        });
-      }
-    });
-}
+  function deleteData(a) {
+    swal({
+        title: "Apa kamu yakin?",
+        text: "Data akan terhapus",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          $.ajax({
+            method: "DELETE",
+            url: "Kategori/" + a,
+            success: function(response) {
+              swal("Data Telah Terhapus", {
+                icon: "success",
+              }).then(() => {
+                window.location.reload()
+              })
+            },
+            error: function(response) {
+              swal("Terjadi kesalahan pada AJAX", {
+                icon: "error",
+              })
+            }
+          });
+        }
+      });
+  }
 </script>
 <?= $this->endSection(); ?>

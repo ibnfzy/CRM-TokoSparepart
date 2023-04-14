@@ -24,20 +24,29 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-            <?= form_open('CustPanel/informasi/' . $data['id_user_detail']); ?>
-            <div class="mb-3">
-              <label class="form-label">Alamat</label>
-              <?= form_input('alamat', $data['alamat'] ? $data['alamat'] : '', [
-                'class' => 'form-control',
-                'placeholder' => 'Masukkan Alamat Rumah Anda'
-              ]); ?>
+            <?= form_open('CustPanel/informasi/' . $data['id_user_detail'], [
+              'class' => 'form-horizontal form-label-left',
+              'data-parsley-validate' => ''
+            ]); ?>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Alamat <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <?= form_input('alamat', $data['alamat'] ? $data['alamat'] : '', [
+                  'class' => 'form-control col-md-7 col-xs-12',
+                  'placeholder' => 'Masukkan Alamat Rumah Anda'
+                ]); ?>
+              </div>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Kontak Nomor (Whatsapp)</label>
-              <?= form_input('nomor', $data['nomor_hp'] ? $data['nomor_hp'] : '', [
-                'class' => 'form-control',
-                'placeholder' => 'Contoh: 085123456789'
-              ]); ?>
+            <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kontak Nomor (Whatsapp) <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <?= form_input('nomor', $data['nomor_hp'] ? $data['nomor_hp'] : '', [
+                  'class' => 'form-control col-md-7 col-xs-12',
+                  'placeholder' => 'Contoh: 085123456789'
+                ]); ?>
+              </div>
             </div>
             <button class="btn btn-info" type="submit">
               <i class="align-middle me-2" data-feather="check-square"></i> Save

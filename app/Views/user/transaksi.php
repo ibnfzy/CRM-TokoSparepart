@@ -81,7 +81,7 @@
                   }; ?>
                   <tr>
                     <td><?= $i++; ?>.</td>
-                    <td><?= $item['total_items'] ?></td>
+                    <td><?= $item['total_barang'] ?></td>
                     <td><?= $item['potongan'] ?>%</td>
                     <td>Rp. <?= $item['total_bayar'] ?></td>
                     <td><span class="badge <?= $bg; ?>"><?= $item['status_bayar'] ?></span></td>
@@ -91,7 +91,7 @@
                         <!-- TRUE -->
                         <a href="#" type="button" title="Berikan testimoni" style="background-color: darkblue;" class="btn btn-blue text-white"><i class="align-middle" data-feather="star"></i></a>
                       <?php endif ?>
-                      <a href="<?= base_url('CustPanel/invoice/' . $item['rowid']); ?>" type="button" title="Lihat Invoice" class="btn btn-warning text-dark"><i class="align-middle" data-feather="file-text"></i></a>
+                      <a href="<?= base_url('CustPanel/invoice/' . $item['rowid']); ?>" type="button" title="Lihat Invoice" class="btn btn-warning text-dark"><i class="fa fa-paperclip"></i></a>
 
                     </td>
                   </tr>

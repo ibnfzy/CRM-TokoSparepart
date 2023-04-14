@@ -29,7 +29,8 @@
           <li><a href="<?= base_url('U'); ?>"><i class="fa fa-home"></i> Home </a></li>
           <li><a href="<?= base_url('U/Admin'); ?>"><i class="fa fa-user"></i> Admin </a></li>
           <li><a href="<?= base_url('U/Barang'); ?>"><i class="fa fa-dropbox"></i> Barang </a></li>
-          <li><a href="<?= base_url('U/Barang'); ?>"><i class="fa fa-cart-plus"></i> Transaksi </a></li>
+          <li><a href="<?= base_url('U/Transaksi'); ?>"><i class="fa fa-cart-plus"></i> Transaksi </a></li>
+          <li><a href="<?= base_url('U/Piutang'); ?>"><i class="fa fa-credit-card"></i> Piutang </a></li>
           <li><a href="<?= base_url('U/KategoriBarang'); ?>"><i class="fa fa-tags"></i> Kategori Barang </a></li>
           <li><a href="<?= base_url('U/User'); ?>"><i class="fa fa-users"></i> User </a></li>
         </ul>

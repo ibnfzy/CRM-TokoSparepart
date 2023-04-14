@@ -1,4 +1,4 @@
-<?= $this->extend('user/base'); ?>
+<?= $this->extend('admin/base'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -38,8 +38,7 @@
               different screen sizes through the dynamic insertion and removal of columns from the table.
             </p> -->
 
-            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap"
-              cellspacing="0" width="100%">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th>~</th>
@@ -53,8 +52,8 @@
               </thead>
               <tbody>
                 <?php $i = 1;
-                foreach ($keranjang as $item) : ?>
-                <?php
+                foreach ($data as $item) : ?>
+                  <?php
                   switch ($item['status_bayar']) {
                     case 'Menunggu Bukti Bayar':
                       $bg = 'bg-info';
@@ -80,21 +79,19 @@
                       $bg = 'bg-danger';
                       break;
                   }; ?>
-                <tr>
-                  <td><?= $i++; ?>.</td>
-                  <td><?= $item['total_items'] ?></td>
-                  <td><?= $item['potongan'] ?>%</td>
-                  <td>Rp. <?= $item['total_bayar'] ?></td>
-                  <td><span class="badge <?= $bg; ?>"><?= $item['status_bayar'] ?></span></td>
-                  <td><?= $item['metode_pembayaran'] ?></td>
-                  <td>
-                    <a href="<?= base_url('U/Transaksi/' . $item['id_user'] . '/' . $item['rowid']); ?>" type="button"
-                      title="Lihat Invoice" class="btn btn-warning text-dark"><i class="align-middle"
-                        data-feather="file-text"></i>
-                      Invoice</a>
+                  <tr>
+                    <td><?= $i++; ?>.</td>
+                    <td><?= $item['total_barang'] ?></td>
+                    <td><?= $item['potongan'] ?>%</td>
+                    <td>Rp. <?= $item['total_bayar'] ?></td>
+                    <td><span class="badge <?= $bg; ?>"><?= $item['status_bayar'] ?></span></td>
+                    <td><?= $item['metode_pembayaran'] ?></td>
+                    <td>
+                      <a href="<?= base_url('U/Transaksi/' . $item['id_user'] . '/' . $item['rowid']); ?>" type="button" title="Lihat Invoice" class="btn btn-warning text-dark"><i class="align-middle" data-feather="file-text"></i>
+                        Invoice</a>
 
-                  </td>
-                </tr>
+                    </td>
+                  </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>

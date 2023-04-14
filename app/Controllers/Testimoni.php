@@ -40,19 +40,19 @@ class Testimoni extends ResourceController
    */
   public function new()
   {
-    $get = $this->db->table('keranjang')
+    $get = $this->db->table('keranjang_beli')
       ->select([
-        'keranjang.rowid',
+        'keranjang_beli.rowid',
         'transaksi.id_barang',
-        'transaksi.nama_produk'
-      ])->join('transaksi', 'keranjang.rowid = transaksi.rowid', 'inner')
-      ->where('keranjang.status_bayar', 'Selesai')
-      ->where('keranjang.id_user', $_SESSION['id_user'])
+        'transaksi.nama_barang'
+      ])->join('transaksi', 'keranjang_beli.rowid = transaksi.rowid', 'inner')
+      ->where('keranjang_beli.status_bayar', 'Selesai')
+      ->where('keranjang_beli.id_user', $_SESSION['id_user'])
       ->get()->getResultArray();
 
     $option = [];
     foreach ($get as $data) {
-      $option[$data['id_barang']] = $data['nama_produk'];
+      $option[$data['id_barang']] = $data['nama_barang'];
     }
 
     return view('user/testimoni_add', [
@@ -101,19 +101,19 @@ class Testimoni extends ResourceController
    */
   public function edit($id = null)
   {
-    $get = $this->db->table('keranjang')
+    $get = $this->db->table('keranjang_beli')
       ->select([
-        'keranjang.rowid',
+        'keranjang_beli.rowid',
         'transaksi.id_barang',
-        'transaksi.nama_produk'
-      ])->join('transaksi', 'keranjang.rowid = transaksi.rowid', 'inner')
-      ->where('keranjang.status_bayar', 'Selesai')
-      ->where('keranjang.id_user', $_SESSION['id_user'])
+        'transaksi.nama_barang'
+      ])->join('transaksi', 'keranjang_beli.rowid = transaksi.rowid', 'inner')
+      ->where('keranjang_beli.status_bayar', 'Selesai')
+      ->where('keranjang_beli.id_user', $_SESSION['id_user'])
       ->get()->getResultArray();
 
     $option = [];
     foreach ($get as $data) {
-      $option[$data['id_barang']] = $data['nama_produk'];
+      $option[$data['id_barang']] = $data['nama_barang'];
     }
 
     return view('user/testimoni_edit', [

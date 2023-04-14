@@ -212,7 +212,7 @@ class UserController extends BaseController
     public function informasi()
     {
         helper('form');
-        return view('user-panel/user_informasi', [
+        return view('user/informasi', [
             'title' => 'Informasi Pelanggan',
             'parentdir' => 'setting',
             'data' => $this->userInformasi->where('id_user', $_SESSION['id_user'])->first()
@@ -228,7 +228,7 @@ class UserController extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            return redirect()->to(base_url('user-panel/informasi'))->with('type-status', 'error')
+            return redirect()->to(base_url('CustPanel/informasi'))->with('type-status', 'error')
                 ->with('dataMessage', $this->validator->getErrors());
         }
 
@@ -239,7 +239,7 @@ class UserController extends BaseController
 
         $this->userInformasi->update($id, $data);
 
-        return redirect()->to(base_url('user-panel/informasi'))->with('type-status', 'info')
+        return redirect()->to(base_url('CustPanel/informasi'))->with('type-status', 'info')
             ->with('message', 'Data berhasil diperbarui');
     }
 

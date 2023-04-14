@@ -64,9 +64,9 @@
                   <td>
                     <div class="btn-group btn-group-lg" role="group">
                       <a href="<?= base_url('U/Barang/' . $item['id_barang'] . '/edit'); ?>" type="button"
-                        class="btn btn-info"><i class="ti-pencil"></i></a>
+                        class="btn btn-info"><i class="fa fa-edit"></i></a>
                       <button onclick="deleteData('<?= $item['id_barang']; ?>')" type="button" class="btn btn-danger"><i
-                          class="fa fa-trash"></i>></button>
+                          class="fa fa-trash"></i></button>
                     </div>
                   </td>
                 </tr>

@@ -38,8 +38,7 @@
               different screen sizes through the dynamic insertion and removal of columns from the table.
             </p> -->
 
-            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap"
-              cellspacing="0" width="100%">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th>~</th>
@@ -53,7 +52,7 @@
               <tbody>
                 <?php $i = 1;
                 foreach ($keranjang as $item) : ?>
-                <?php
+                  <?php
                   switch ($item['status_bayar']) {
                     case 'Menunggu Bukti Bayar':
                       $bg = 'bg-info';
@@ -79,14 +78,14 @@
                       $bg = 'bg-danger';
                       break;
                   }; ?>
-                <tr>
-                  <td><?= $i++; ?>.</td>
-                  <td><?= $item['total_items'] ?></td>
-                  <td><?= $item['potongan'] ?>%</td>
-                  <td>Rp. <?= $item['total_bayar'] ?></td>
-                  <td><span class="badge <?= $bg; ?>"><?= $item['status_bayar'] ?></span></td>
-                  <td><?= $item['metode_pembayaran'] ?></td>
-                </tr>
+                  <tr>
+                    <td><?= $i++; ?>.</td>
+                    <td><?= $item['total_barang'] ?></td>
+                    <td><?= $item['potongan'] ?>%</td>
+                    <td>Rp. <?= $item['total_bayar'] ?></td>
+                    <td><span class="badge <?= $bg; ?>"><?= $item['status_bayar'] ?></span></td>
+                    <td><?= $item['metode_pembayaran'] ?></td>
+                  </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>
@@ -112,8 +111,7 @@
               different screen sizes through the dynamic insertion and removal of columns from the table.
             </p> -->
 
-            <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
-              width="100%">
+            <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th>~</th>
@@ -126,13 +124,13 @@
               <tbody>
                 <?php $p = 1;
                 foreach ($transaksi as $item) : ?>
-                <tr>
-                  <td><?= $p++; ?>.</td>
-                  <td><?= $item['nama_barang']; ?></td>
-                  <td><?= $item['qty_transaksi']; ?></td>
-                  <td>Rp. <?= $item['total_harga']; ?></td>
-                  <td><?= $item['transaksi_datetime']; ?></td>
-                </tr>
+                  <tr>
+                    <td><?= $p++; ?>.</td>
+                    <td><?= $item['nama_barang']; ?></td>
+                    <td><?= $item['qty_transaksi']; ?></td>
+                    <td>Rp. <?= $item['total_harga']; ?></td>
+                    <td><?= $item['transaksi_datetime']; ?></td>
+                  </tr>
                 <?php endforeach; ?>
               </tbody>
             </table>

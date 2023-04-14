@@ -53,17 +53,18 @@
                 <?php $i = 0;
                 foreach ($data as $item) : ?>
                 <?php $db = \Config\Database::connect();
-                  $get = $db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRow(); ?>
+                  $get = $db->table('barang')->where('id_barang', $item['id_barang'])->get()->getRowArray();
+                  ?>
                 <tr>
                   <td><?= $i += 1; ?></td>
-                  <td><?= $get->nama_barang; ?></td>
+                  <td><?= $get['nama_barang']; ?></td>
                   <td><?= $item['bintang']; ?></td>
                   <td>
                     <div class="btn-group btn-group-lg" role="group">
                       <a href="<?= base_url('CustPanel/Testimoni/' . $item['id_testimoni'] . '/edit'); ?>" type="button"
-                        class="btn btn-info"><i class="align-middle me-2" data-feather="edit"></i></a>
+                        class="btn btn-info"><i class="fa fa-edit"></i></a>
                       <button onclick="deleteData('<?= $item['id_testimoni']; ?>')" type="button"
-                        class="btn btn-danger"><i class="align-middle me-2" data-feather="trash-2"></i></button>
+                        class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </div>
                   </td>
                 </tr>

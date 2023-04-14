@@ -52,16 +52,16 @@ $routes->group('Auth', ['namespace' => 'App\Controllers'], static function ($rou
 
 $routes->group('U', ['namespace' => 'App\Controllers'], static function ($routes) {
     $routes->get('/', 'AdminController::index');
+    $routes->get('Transaksi', 'AdminController::transaksi');
     $routes->resource('Admin');
     $routes->resource('Barang');
     $routes->resource('KategoriBarang');
-    $routes->get('/User', 'AdminController::user');
-    $routes->get('/Transaksi', 'AdminController::transaksi');
-    $routes->get('/Piutang', 'AdminController::piutang');
-    $routes->get('/Settings', 'AdminController::settings');
-    $routes->post('/Settings', 'AdminController::save_settings');
-    $routes->get('/Transaksi/(:any)', 'AdminController::invoice/$1');
-    $routes->get('/Validasi/(:any)', 'AdminController::validasi_pembayaran/$1');
+    $routes->get('User', 'AdminController::user');
+    $routes->get('Piutang', 'AdminController::piutang');
+    $routes->get('Settings', 'AdminController::settings');
+    $routes->post('Settings', 'AdminController::save_settings');
+    $routes->get('Transaksi/(:any)', 'AdminController::invoice/$1');
+    $routes->get('Validasi/(:any)', 'AdminController::validasi_pembayaran/$1');
 });
 
 $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function ($routes) {
@@ -69,8 +69,8 @@ $routes->group('CustPanel', ['namespace' => 'App\Controllers'], static function 
     $routes->get('invoice/(:any)', 'UserController::invoice/$1');
     $routes->get('transaksi', 'UserController::transaksi');
     $routes->post('upload/(:any)', 'UserController::upload/$1');
-    $routes->get('informasi', 'UserPanelController::informasi');
-    $routes->post('informasi/(:any)', 'UserPanelController::update_informasi/$1');
+    $routes->get('informasi', 'UserController::informasi');
+    $routes->post('informasi/(:any)', 'UserController::update_informasi/$1');
     $routes->get('/', 'UserController::index');
     $routes->resource('Testimoni');
     // $routes->get('/TestimoniNew/(:any)', 'UserController::testimoni_add/$1');

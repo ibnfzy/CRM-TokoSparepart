@@ -50,7 +50,7 @@
               <div class="col-sm-4 invoice-col">
                 <b>Invoice #<?= $rowid; ?></b><br>
                 <br>
-                <b>ID Keranjang:</b> <?= $keranjang['id_keranjang']; ?><br>
+                <b>ID Keranjang:</b> <?= $keranjang['id_keranjang_beli']; ?><br>
               </div>
               <!-- /.col -->
             </div>
@@ -64,21 +64,21 @@
                     <tr>
                       <th>Kuantitas Barang</th>
                       <th>Nama Barang</th>
-                      <th>Total Harga/th>
+                      <th>Total Harga</th>
+                      <th>#</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php $i = 1;
                     $total = [];
                     foreach ($data as $item) : ?>
-                    <?php $total[] = $item['total_harga']; ?>
-                    <tr>
-                      <td><?= $i++; ?></td>
-                      <td><?= $item['nama_produk']; ?></td>
-                      <td><?= $item['qty_transaksi']; ?></td>
-                      <td>Rp. <?= $item['total_harga']; ?></td>
-                      <td><?= $item['transaksi_datetime']; ?></td>
-                    </tr>
+                      <?php $total[] = $item['total_harga']; ?>
+                      <tr>
+                        <td><?= $item['qty_transaksi']; ?></td>
+                        <td><?= $item['nama_barang']; ?></td>
+                        <td>Rp. <?= $item['total_harga']; ?></td>
+                        <td><?= $item['transaksi_datetime']; ?></td>
+                      </tr>
                     <?php endforeach ?>
                   </tbody>
                 </table>
@@ -93,12 +93,12 @@
 
 
                 <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                  <?php if ($keranjang['metode_pembayaran'] == 'transfer') : ?>
-                  Silahkan melakukan transfer ke rekening berikut : <br>
-                  <strong>BANK XYZ 1233213332 A/n Toko FAJAR 88</strong>
+                  <?php if ($keranjang['metode_pembayaran'] == 'Transfer') : ?>
+                    Silahkan melakukan transfer ke rekening berikut : <br>
+                    <strong>BANK XYZ 1233213332 A/n Toko FAJAR 88</strong>
                   <?php else : ?>
-                  Silahkan melakukan pembayaran pada toko dialamat berikut : <br>
-                  <strong><?= $dataToko['alamat_toko']; ?></strong>
+                    Silahkan melakukan pembayaran pada toko dialamat berikut : <br>
+                    <strong><?= $dataToko['alamat_toko']; ?></strong>
                   <?php endif ?>
                 </p>
               </div>
@@ -118,10 +118,11 @@
                     </tr>
                     <tr>
                       <th>Total:</th>
-                      <td>Rp. <?php $bayarDiskon = ($subtotal * ($keranjang['potongan'] / 100));
+                      <td>Rp. <?php
+                              $bayarDiskon = ($subtotal * ($keranjang['potongan'] / 100));
                               $bayar = $subtotal;
 
-                              echo $totalBayar = (isset($keranjang['potongan']) or $keranjang['potongan'] != 0) ? $bayarDiskon : $bayar;
+                              echo $totalBayar = ($keranjang['potongan'] == null or $keranjang['potongan'] > 0) ? $bayarDiskon : $bayar;
                               ?></td>
                     </tr>
                   </table>
@@ -130,14 +131,11 @@
             </div>
             <div class="row no-print">
               <div class="col-12">
-                <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i
-                    class="fa fa-print"></i> Print</a>
+                <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
                 <?php if ($keranjang['metode_pembayaran'] == 'Transfer') : ?>
-                <button <?= $disable = ($keranjang['bukti_bayar'] == null) ? '' : 'disabled'; ?> type="button"
-                  class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal"><i
-                    class="fa fa-upload"></i> Upload Bukti
-                  Pembayaran
-                </button>
+                  <button <?= $disable = ($keranjang['bukti_bayar'] == null) ? '' : 'disabled'; ?> type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-upload"></i> Upload Bukti
+                    Pembayaran
+                  </button>
                 <?php endif ?>
               </div>
             </div>
@@ -149,33 +147,32 @@
   </div>
 
   <?php if ($keranjang['bukti_bayar'] == null) : ?>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Bayar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="<?= base_url('CustPanel/upload/' . $keranjang['id_keranjang']); ?>" method="post"
-          enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="file" class="font-weight-bold">Bukti Bayar <span class="text-danger">*Max ukuran file
-                  2mb</span></label>
-              <div class="">
-                <input type="file" class="form-control" id="file" name="gambar" accept="image/*">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Bayar</h5>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
+          <form action="<?= base_url('CustPanel/upload/' . $keranjang['id_keranjang_beli']); ?>" method="post" enctype="multipart/form-data">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="file" class="font-weight-bold">Bukti Bayar <span class="text-danger">*Max ukuran file
+                    2mb</span></label>
+                <div class="">
+                  <input type="file" class="form-control" id="file" name="gambar" accept="image/*">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Upload</button>
-          </div>
-        </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
   <?php endif; ?>
 

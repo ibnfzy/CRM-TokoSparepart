@@ -53,7 +53,7 @@ class AdminController extends BaseController
             'title' => 'Piutang',
             'data' => $this->db->table('keranjang_beli')
                 ->where('status_bayar', 'Menunggu Bukti Bayar')
-                ->where('status_bayar', 'Belum Lunas')
+                ->orWhere('status_bayar', 'Belum Lunas')
                 ->get()->getResultArray()
         ]);
     }
@@ -70,7 +70,7 @@ class AdminController extends BaseController
             ->with('message', 'Data berhasil diubah');
     }
 
-    public function invoice($userid = '', $rowid)
+    public function invoice($userid = '', $rowid = '')
     {
         helper('form');
         $get = $this->userInformation->where('id_user', $userid)->first();
@@ -101,7 +101,9 @@ class AdminController extends BaseController
 
     public function settings()
     {
+        helper('form');
         return view('admin/setting', [
+            'title' => 'Setting',
             'data' => $this->settingsModel->find(01)
         ]);
     }
@@ -136,7 +138,7 @@ class AdminController extends BaseController
 
     public function user()
     {
-        return view('admmin/user', [
+        return view('admin/user', [
             'title' => 'User',
             'data' => $this->user->findAll()
         ]);
