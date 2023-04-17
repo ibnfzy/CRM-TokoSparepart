@@ -46,7 +46,7 @@
             </picture>
             <div class="position-absolute start-0 bottom-0 end-0 z-index-20 p-2">
               <button onclick="add_item('<?= $item['id_barang'] ?>', <?= $item['stok_barang'] ?>)"
-                class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Quick Add</button>
+                class="btn btn-quick-add"><i class="ri-add-line me-2"></i> Lihat Detail</button>
             </div>
           </div>
           <div class="card-body px-0">

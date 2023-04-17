@@ -105,6 +105,7 @@
       </div>
     </div>
   </div>
+  <script src="<?= base_url(); ?>assets/js/jquery-1.12.0.min.js"></script>
   <script src="<?= base_url('/'); ?>/toastr/build/toastr.min.js"></script>
 
   <?= $this->renderSection('script'); ?>

@@ -83,12 +83,13 @@
 <?= $this->section('script'); ?>
 <script>
 function deleteData(a) {
-  swal({
+  swal.fire({
       title: "Apa kamu yakin?",
       text: "Data akan terhapus",
       icon: "warning",
-      buttons: true,
-      dangerMode: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
     })
     .then((willDelete) => {
       if (willDelete) {
@@ -96,14 +97,14 @@ function deleteData(a) {
           method: "DELETE",
           url: "Admin/" + a,
           success: function(response) {
-            swal("Data Telah Terhapus", {
+            swal.fire("Data Telah Terhapus", {
               icon: "success",
             }).then(() => {
               window.location.reload()
             })
           },
           error: function(response) {
-            swal("Terjadi kesalahan pada AJAX", {
+            swal.fire("Terjadi kesalahan pada AJAX", {
               icon: "error",
             })
           }

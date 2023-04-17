@@ -60,7 +60,7 @@
               <p class="fs-4 m-0">Rp. <?= $data['harga_barang']; ?></p>
             </div>
             <button onclick="add_item('<?= $data['id_barang'] ?>', <?= $data['stok_barang'] ?>)"
-              class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow">Add To Shopping Bag</button>
+              class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow">Tambah Ke Keranjang</button>
 
             <!-- Product Highlights-->
             <div class="my-5">

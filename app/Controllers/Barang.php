@@ -90,7 +90,7 @@ class Barang extends ResourceController
             'gambar_barang' => $this->request->getFile('gambar')->getName(),
             'desc_barang' => $this->request->getPost('desc'),
             'harga_barang' => $this->request->getPost('harga'),
-            'stok_barang' => $this->request->getPost('stok_produk'),
+            'stok_barang' => $this->request->getPost('stok_barang'),
             'kategori_barang' => $this->request->getPost('kategori'),
             'jam_tgl_upload' => date('D, d M Y H:i:s')
         ];
@@ -152,7 +152,7 @@ class Barang extends ResourceController
                 'gambar_barang' => $this->request->getFile('gambar')->getName(),
                 'desc_barang' => $this->request->getPost('desc'),
                 'harga_barang' => $this->request->getPost('harga'),
-                'stok_barang' => $this->request->getPost('stok_produk'),
+                'stok_barang' => $this->request->getPost('stok_barang'),
                 'kategori_barang' => $this->request->getPost('kategori'),
                 'jam_tgl_upload' => date('D, d M Y H:i:s')
             ];
@@ -169,7 +169,7 @@ class Barang extends ResourceController
                 'nama_barang' => $this->request->getPost('nama'),
                 'desc_barang' => $this->request->getPost('desc'),
                 'harga_barang' => $this->request->getPost('harga'),
-                'stok_barang' => $this->request->getPost('stok_produk'),
+                'stok_barang' => $this->request->getPost('stok_barang'),
                 'kategori_barang' => $this->request->getPost('kategori'),
                 'jam_tgl_upload' => date('D, d M Y H:i:s')
             ];

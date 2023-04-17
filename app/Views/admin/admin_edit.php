@@ -66,27 +66,23 @@
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Password <span
-                  class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Password
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <?= form_input('password', '', [
                   'class' => 'form-control col-md-7 col-xs-12',
                   'placeholder' => 'Masukkan Password',
-                  'required' => 'required'
                 ], 'password'); ?>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Konfirmasi Password <span
-                  class="required">*</span>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Konfirmasi Password
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <?= form_input('konfirmasiPassword', '', [
                   'class' => 'form-control col-md-7 col-xs-12',
                   'placeholder' => 'Konfirmasi Password',
-                  'required' => 'required'
                 ], 'password'); ?>
               </div>
             </div>
